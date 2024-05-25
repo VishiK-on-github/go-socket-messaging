@@ -15,12 +15,19 @@ class App extends Component {
 
 	componentDidMount() {
 		connect((msg) => {
-			console.log("new message");
+			console.log("New Message");
 			this.setState((prevState) => ({
 				chatHistory: [...prevState.chatHistory, msg],
 			}));
 			console.log(this.state);
 		});
+	}
+
+	send(event) {
+		if (event.keyCode === 13) {
+			sendMsg(event.target.value);
+			event.target.value = "";
+		}
 	}
 
 	render() {

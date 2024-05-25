@@ -4,7 +4,8 @@ import "./Message.scss"
 class Message extends Component {
   constructor(props) {
     super(props);
-    let temp = JSON.parse(this.parse.message);
+    console.log("in message", this.props)
+    let temp = JSON.parse(this.props.message);
 
     this.state = {
       message: temp
