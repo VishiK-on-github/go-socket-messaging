@@ -31,7 +31,6 @@ func (pool *Pool) Start() {
 			pool.Clients[client] = true
 			fmt.Println("size of connection pool: ", len(pool.Clients))
 			for client, _ := range pool.Clients {
-				fmt.Println(client)
 				// sending message to all clients in the pool
 				// that a new user has joined the chat
 				client.Conn.WriteJSON(Message{Type: 1, Body: "New User Joined !"})
