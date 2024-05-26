@@ -21,6 +21,9 @@ type Message struct {
 }
 
 func (c *Client) Read() {
+
+	// delegate closing of connection / client disconnection
+	// after the read method completes
 	defer func() {
 		c.Pool.Unregister <- c
 		c.Conn.Close()
@@ -28,6 +31,7 @@ func (c *Client) Read() {
 
 	for {
 
+		// get the message
 		messageType, p, err := c.Conn.ReadMessage()
 
 		if err != nil {
@@ -35,8 +39,10 @@ func (c *Client) Read() {
 			return
 		}
 
+		// create a message instance
 		message := Message{Type: messageType, Body: string(p)}
 
+		// send the message over the broadcast channel
 		c.Pool.Broadcast <- message
 
 		fmt.Printf("Message received: %+v\n", message)
