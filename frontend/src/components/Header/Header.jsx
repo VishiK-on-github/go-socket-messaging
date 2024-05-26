@@ -1,10 +1,11 @@
 import React from "react";
-import "./Header.scss"
 
 const Header = () => (
-  <div className="header">
-    <h2>Go Websocket Chat App</h2>
-  </div>
+  <nav class="navbar bg-primary">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1 text-white">Go Websocket Chat App</span>
+    </div>
+  </nav>
 )
 
 export default Header

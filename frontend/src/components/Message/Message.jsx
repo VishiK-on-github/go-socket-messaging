@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import "./Message.scss"
 
 class Message extends Component {
   constructor(props) {
@@ -13,7 +12,7 @@ class Message extends Component {
 
   render() {
     return (
-      <div className="message">
+      <div className="alert alert-primary">
         {this.state.message.body}
       </div>
     )

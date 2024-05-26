@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import "./ChatHistory.scss"
 import Message from "../Message";
 
 class ChatHistory extends Component {
@@ -7,9 +6,11 @@ class ChatHistory extends Component {
     const messages = this.props.chatHistory.map(msg => <Message key={msg.timeStamp} message={msg.data} />)
 
     return (
-      <div className="chat-history">
-        <h2>Chat History</h2>
-        {messages}
+      <div className="p-3">
+        <h2 className="p-3">Chat History</h2>
+        <div className="p-3">
+          {messages}
+        </div>
       </div>
     )
   }
